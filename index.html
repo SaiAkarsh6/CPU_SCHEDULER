@@ -7,41 +7,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>CPU Scheduler</h1>
+    <div class="container">
+        <h1>CPU Scheduler</h1>
 
-    <!-- Form to Add Process Details -->
-    <div class="input-form">
-        <input type="number" id="arrivalTime" placeholder="Arrival Time">
-        <input type="number" id="burstTime" placeholder="Burst Time">
-        <input type="number" id="priority" placeholder="Priority (Optional)">
-        <button onclick="addProcess()">Add Process</button>
+        <!-- Process Input Form -->
+        <div class="input-form">
+            <h2>Add Process</h2>
+            <input type="number" id="arrivalTime" placeholder="Arrival Time" required>
+            <input type="number" id="burstTime" placeholder="Burst Time" required>
+            <input type="number" id="priority" placeholder="Priority (Optional)">
+            <button onclick="addProcess()">Add Process</button>
+        </div>
+
+        <!-- Algorithm Selection and Execution -->
+        <div class="scheduler-controls">
+            <h2>Select Algorithm</h2>
+            <button onclick="runScheduler('fcfs')">FCFS</button>
+            <button onclick="runScheduler('sjf')">SJF</button>
+            <button onclick="runScheduler('srtf')">SRTF</button>
+            <button onclick="runScheduler('rr')">Round Robin</button>
+            <input type="number" id="timeQuantum" placeholder="Time Quantum (for RR)">
+        </div>
+
+        <!-- Output Table -->
+        <div class="output">
+            <h2>Results</h2>
+            <table id="outputTable">
+                <thead>
+                    <tr>
+                        <th>Process ID</th>
+                        <th>Arrival Time</th>
+                        <th>Burst Time</th>
+                        <th>Waiting Time</th>
+                        <th>Turnaround Time</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
     </div>
-
-    <!-- Algorithm Buttons -->
-    <div class="buttons">
-        <button onclick="runScheduler('fcfs')">FCFS</button>
-        <button onclick="runScheduler('sjf')">SJF</button>
-        <button onclick="runScheduler('srtf')">SRTF</button>
-        <button onclick="runScheduler('rr')">Round Robin</button>
-        <input type="number" id="timeQuantum" placeholder="Time Quantum (for RR)">
-    </div>
-
-    <!-- Output Table -->
-    <div class="output">
-        <table id="outputTable">
-            <thead>
-                <tr>
-                    <th>Process ID</th>
-                    <th>Arrival Time</th>
-                    <th>Burst Time</th>
-                    <th>Waiting Time</th>
-                    <th>Turnaround Time</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-        </table>
-    </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
