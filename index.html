@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Scheduler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CPU Scheduler</h1>
+
+    <!-- Form to Add Process Details -->
+    <div class="input-form">
+        <input type="number" id="arrivalTime" placeholder="Arrival Time">
+        <input type="number" id="burstTime" placeholder="Burst Time">
+        <input type="number" id="priority" placeholder="Priority (Optional)">
+        <button onclick="addProcess()">Add Process</button>
+    </div>
+
+    <!-- Algorithm Buttons -->
+    <div class="buttons">
+        <button onclick="runScheduler('fcfs')">FCFS</button>
+        <button onclick="runScheduler('sjf')">SJF</button>
+        <button onclick="runScheduler('srtf')">SRTF</button>
+        <button onclick="runScheduler('rr')">Round Robin</button>
+        <input type="number" id="timeQuantum" placeholder="Time Quantum (for RR)">
+    </div>
+
+    <!-- Output Table -->
+    <div class="output">
+        <table id="outputTable">
+            <thead>
+                <tr>
+                    <th>Process ID</th>
+                    <th>Arrival Time</th>
+                    <th>Burst Time</th>
+                    <th>Waiting Time</th>
+                    <th>Turnaround Time</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
